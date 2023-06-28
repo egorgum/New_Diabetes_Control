@@ -1,4 +1,4 @@
-package com.example.diabetescontrol
+package com.example.diabetescontrol.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,20 +10,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.diabetescontrol.ui.theme.DiabetesControlTheme
+import com.example.diabetescontrol.presentation.theme.DiabetesControlTheme
+import com.example.diabetescontrol.presentation.theme.MainScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             DiabetesControlTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+               MainScreen()
             }
         }
     }
