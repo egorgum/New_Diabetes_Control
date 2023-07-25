@@ -8,12 +8,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 
 @Composable
-fun AlarmScreen() {
+fun RecipesScreen() {
     Text(
         textAlign = TextAlign.Center,
         modifier = Modifier
             .fillMaxSize()
             .wrapContentHeight(),
-        text = "Alarm"
+        text = "Recipes"
     )
 }
