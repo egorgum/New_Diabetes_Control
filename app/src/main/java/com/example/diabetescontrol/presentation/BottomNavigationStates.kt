@@ -9,19 +9,19 @@ sealed class BottomNavigationStates(
     val title: String,
     //val iconFocused: Int
 ) {
-    object Analytics : BottomNavigationStates(
+    data object Analytics : BottomNavigationStates(
         route = ANALYTICS_ROUTE,
         iconId = R.drawable.baseline_analytics_24,
         title = ANALYTICS_TITLE
     )
 
-    object Recipes : BottomNavigationStates(
+    data object Recipes : BottomNavigationStates(
         route = RECIPES_ROUTE,
         iconId = R.drawable.baseline_menu_book_24,
         title = RECIPES_TITLE
     )
 
-    object Searching: BottomNavigationStates(
+    data object Searching: BottomNavigationStates(
         route = SEARCHING_ROUTE,
         iconId = R.drawable.baseline_search_24,
         title = SEARCHING_TITLE
