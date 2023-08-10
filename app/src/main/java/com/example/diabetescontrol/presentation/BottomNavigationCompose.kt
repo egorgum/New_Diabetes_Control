@@ -16,10 +16,10 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.diabetescontrol.presentation.theme.DiabetesControlTheme
 
-//Нижняя панель
+//Bottom bar
 @Composable
 fun BottomNavigationScreen(navController: NavController) {
-    //Список экранов
+    //Screens list
     val listItems = listOf(
         BottomNavigationStates.Recipes,
         BottomNavigationStates.Analytics,
@@ -27,7 +27,7 @@ fun BottomNavigationScreen(navController: NavController) {
     )
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination
-    //Настройка внешнего вида нижней панели
+    //Settings of bottom bar design
     DiabetesControlTheme {
         Row(
             modifier = Modifier
