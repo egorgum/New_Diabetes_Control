@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.res.stringResource
-import com.example.diabetescontrol.R
 import com.example.diabetescontrol.presentation.LoadStates
 import com.example.diabetescontrol.presentation.LoadingSample
 import com.example.diabetescontrol.presentation.SearchingScreenViewModel
@@ -19,7 +18,7 @@ fun SearchingScreen() {
     val viewModel = remember { SearchingScreenViewModel() }
     val state by remember {viewModel.stateOfLoading}
 
-    Column {
+    Column() {
 
         SearchBarSample { q ->  viewModel.getProducts(q)}
 
@@ -32,7 +31,7 @@ fun SearchingScreen() {
                 ListOfItems((state as LoadStates.Success).products)
 
             is LoadStates.Error ->
-                TextInCenterSample(text = stringResource(id = R.string.nutrientsInfo))
+                TextInCenterSample((state as LoadStates.Error).errorMessage)
 
             is LoadStates.Loading ->
                 LoadingSample()
