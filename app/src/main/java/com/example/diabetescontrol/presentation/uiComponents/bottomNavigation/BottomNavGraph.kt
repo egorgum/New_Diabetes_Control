@@ -1,9 +1,12 @@
-package com.example.diabetescontrol.presentation
+package com.example.diabetescontrol.presentation.uiComponents.bottomNavigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.diabetescontrol.presentation.screens.AnalyticsScreen
+import com.example.diabetescontrol.presentation.screens.RecipesScreen
+import com.example.diabetescontrol.presentation.screens.SearchingScreen
 
 @Composable
 fun BottomNavGraph(navController: NavHostController) {

@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Diabetes Control</string>
+
+    <string name="recipes">Recipes</string>
+    <string name="analytics">Analytics</string>
+    <string name="search">Search</string>
+
+    <string name="carbohydrates">Carbohydrates</string>
+    <string name="energy">Energy</string>
+    <string name="fats">Fats</string>
+    <string name="proteins">Proteins</string>
+
+    <string name="kcal">kcal</string>
+    <string name="gram">g</string>
+
+    <string name="nutrientsInfo">Information about nutrients is provided per 100 grams of product</string>
+
 </resources>

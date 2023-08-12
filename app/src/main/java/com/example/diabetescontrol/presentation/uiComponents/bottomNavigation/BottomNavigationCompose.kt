@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.presentation
+package com.example.diabetescontrol.presentation.uiComponents.bottomNavigation
 
 
 import androidx.compose.foundation.background
@@ -23,7 +23,7 @@ fun BottomNavigationScreen(navController: NavController) {
     val listItems = listOf(
         BottomNavigationStates.Recipes,
         BottomNavigationStates.Analytics,
-        BottomNavigationStates.Searching
+        BottomNavigationStates.Search
     )
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination

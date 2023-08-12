@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.presentation
+package com.example.diabetescontrol.presentation.uiComponents.bottomNavigation
 
 
 import com.example.diabetescontrol.R
@@ -6,36 +6,29 @@ import com.example.diabetescontrol.R
 sealed class BottomNavigationStates(
     val route: String,
     val iconId: Int,
-    val title: String,
-    //val iconFocused: Int
+    val titleRes: Int,
 ) {
     data object Analytics : BottomNavigationStates(
         route = ANALYTICS_ROUTE,
         iconId = R.drawable.baseline_analytics_24,
-        title = ANALYTICS_TITLE
+        titleRes = R.string.analytics
     )
 
     data object Recipes : BottomNavigationStates(
         route = RECIPES_ROUTE,
         iconId = R.drawable.baseline_menu_book_24,
-        title = RECIPES_TITLE
+        titleRes = R.string.recipes
     )
 
-    data object Searching: BottomNavigationStates(
+    data object Search: BottomNavigationStates(
         route = SEARCHING_ROUTE,
         iconId = R.drawable.baseline_search_24,
-        title = SEARCHING_TITLE
+        titleRes = R.string.search
     )
 
     companion object {
-
         const val ANALYTICS_ROUTE = "analytics_route"
         const val RECIPES_ROUTE = "recipes_route"
         const val SEARCHING_ROUTE = "searching_route"
-
-        const val ANALYTICS_TITLE = "Analytics"
-        const val RECIPES_TITLE = "Recipes"
-        const val SEARCHING_TITLE = "Searching"
-
     }
 }

@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.presentation
+package com.example.diabetescontrol.presentation.uiComponents.list
 
 
 import androidx.compose.foundation.layout.fillMaxWidth
