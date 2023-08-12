@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.presentation
+package com.example.diabetescontrol.presentation.screens
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -8,12 +8,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 
 @Composable
-fun AnalyticsScreen() {
+fun RecipesScreen() {
     Text(
         textAlign = TextAlign.Center,
         modifier = Modifier
             .fillMaxSize()
             .wrapContentHeight(),
-        text = "Analytics"
+        text = "Recipes"
     )
 }

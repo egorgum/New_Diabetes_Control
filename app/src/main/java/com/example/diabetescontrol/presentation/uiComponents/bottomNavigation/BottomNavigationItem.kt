@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.presentation
+package com.example.diabetescontrol.presentation.uiComponents.bottomNavigation
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -73,14 +74,16 @@ fun BottomNavigationItem(
             {
                 Icon(
                     painter = painterResource(id = screen.iconId),
-                    contentDescription = "icon",
+                    contentDescription = null,
                     tint = contentColor,
-                    modifier = Modifier.height(50.dp).width(50.dp)
+                    modifier = Modifier
+                        .height(50.dp)
+                        .width(50.dp)
                 )
                 //Touch animation
                 AnimatedVisibility(visible = selected) {
                     Text(
-                        text = screen.title,
+                        text = stringResource(id = screen.titleRes),
                         color = contentColor
                     )
                 }
