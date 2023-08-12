@@ -27,7 +27,8 @@ class SearchingScreenViewModel:ViewModel(){
                    LoadStates.Success(a)
                }
                 catch (e: Exception) {
-                    LoadStates.Error(e.toString())
+                    Log.e("SearchScreen", "Error: $e")
+                    LoadStates.Error(e.message.toString())
                 }
         }
     }

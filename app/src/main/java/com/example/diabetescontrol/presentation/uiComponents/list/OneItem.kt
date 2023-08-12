@@ -22,7 +22,7 @@ import com.example.diabetescontrol.domain.ProductInfo
 
 @Composable
 fun OneItem(product: ProductInfo) {
-    Card(Modifier.padding(top = 8.dp)) {
+    Card(Modifier.padding(horizontal = 8.dp, vertical = 8.dp,)) {
         Row(
             modifier = Modifier
                 .padding(horizontal = 8.dp, vertical = 8.dp)

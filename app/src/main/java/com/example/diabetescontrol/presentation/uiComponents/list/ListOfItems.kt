@@ -11,7 +11,7 @@ import com.example.diabetescontrol.domain.ProductInfo
 
 @Composable
 fun ListOfItems(items: List<ProductInfo>) {
-    LazyColumn(Modifier.fillMaxWidth().padding(8.dp)){
+    LazyColumn(Modifier.fillMaxWidth().padding(bottom = 8.dp)){
         items.forEach {
             item {
                 OneItem(product = it)

@@ -14,5 +14,6 @@
     <string name="gram">g</string>
 
     <string name="nutrientsInfo">Information about nutrients is provided per 100 grams of product</string>
+    <string name="error">Error</string>
 
 </resources>
