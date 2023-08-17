@@ -2,8 +2,9 @@ package com.example.diabetescontrol.data.mapper
 
 import com.example.diabetescontrol.data.models.ProductDto
 import com.example.diabetescontrol.domain.ProductInfo
+import javax.inject.Inject
 
-class ProductMapper {
+class ProductMapper @Inject constructor() {
 
     fun mapDtoToProductInfoList(dto: ProductDto): List<ProductInfo>{
         val result = mutableListOf<ProductInfo>()

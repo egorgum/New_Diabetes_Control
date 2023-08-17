@@ -11,5 +11,5 @@ object EmamApiFactory {
         .baseUrl(BASE_URL)
         .addConverterFactory(MoshiConverterFactory.create().asLenient())
         .build()
-    val searchProduct: EmamApiService = retrofit.create(EmamApiService::class.java)
+    val apiService: EmamApiService = retrofit.create(EmamApiService::class.java)
 }
