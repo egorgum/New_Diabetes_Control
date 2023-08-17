@@ -5,9 +5,10 @@ import com.example.diabetescontrol.data.emamApi.EmamApiService
 import com.example.diabetescontrol.data.mapper.ProductMapper
 import com.example.diabetescontrol.domain.ProductInfo
 import com.example.diabetescontrol.domain.SearchingProductsRepository
+import javax.inject.Inject
 
 
-class SearchingProductsRepositoryImpl(
+class SearchingProductsRepositoryImpl @Inject constructor(
     private val mapper: ProductMapper,
     private val apiService: EmamApiService,
 ) : SearchingProductsRepository {

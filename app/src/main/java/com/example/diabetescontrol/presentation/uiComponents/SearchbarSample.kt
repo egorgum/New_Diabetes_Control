@@ -19,8 +19,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 
@@ -28,7 +30,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun SearchBarSample(function: (String) -> Unit) {
 
-    var text by remember { mutableStateOf("") }
+    var text by rememberSaveable { mutableStateOf("") }
     var active by remember { mutableStateOf(false) }
     var history = remember { mutableStateListOf("Lol", "Kek") }
 
@@ -69,16 +71,27 @@ fun SearchBarSample(function: (String) -> Unit) {
                     })
             }
         }
-    ) {
+    )
+
+    {
         history.forEach {
             if (it.isNotEmpty()) {
-                Row(modifier = Modifier.padding(all = 14.dp)) {
+                Row(
+                    modifier = Modifier
+                        .clickable {
+                            text = it
+                        }
+                        .fillMaxWidth()
+                        .padding(14.dp)
+                ) {
                     Icon(
                         imageVector = Icons.Default.History,
-                        contentDescription = null
+                        contentDescription = null,
                     )
                     Spacer(modifier = Modifier.width(10.dp))
-                    Text(text = it)
+                    Text(
+                        text = it,
+                        textAlign = TextAlign.Center)
                 }
             }
         }
