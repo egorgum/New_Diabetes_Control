@@ -45,7 +45,7 @@ fun SearchBarSample(function: (String) -> Unit) {
         onSearch = { search() },
         active = active,
         onActiveChange = { active = true },
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().padding(bottom = 10.dp),
         placeholder = { Text("Search") },
         leadingIcon = {
             Icon(
