@@ -12,6 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchingScreenViewModel @Inject constructor(private val useCase: GetFoundProductsUseCase):ViewModel(){
+
     var stateOfLoading: MutableState<LoadStates> = mutableStateOf(LoadStates.Default())
 
     fun getProducts(product: String){
