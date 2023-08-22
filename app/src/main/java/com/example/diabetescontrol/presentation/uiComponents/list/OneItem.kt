@@ -23,18 +23,22 @@ import com.example.diabetescontrol.domain.entities.ProductInfo
 @Composable
 fun OneItem(product: ProductInfo) {
     Card(Modifier.padding(horizontal = 8.dp, vertical = 8.dp,)) {
+
         Row(
             modifier = Modifier
                 .padding(horizontal = 8.dp, vertical = 8.dp)
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
+
             Column(modifier = Modifier.padding(start = 8.dp, end = 8.dp)) { // 3
+
                 Text(
                     text = product.label,
                     style = TextStyle(fontWeight = FontWeight.Bold),
                     fontSize = 20.sp,
                 )
+
                 if (product.image != null) {
                     AsyncImage(
                         model = product.image,
@@ -42,6 +46,7 @@ fun OneItem(product: ProductInfo) {
                         modifier = Modifier.size(400.dp),
                     )
                 }
+
                 Text(
                     text = "${stringResource(id = R.string.energy)}: ${product.energy} ${
                         stringResource(
@@ -49,6 +54,7 @@ fun OneItem(product: ProductInfo) {
                         )
                     }"
                 )
+
                 Text(
                     text = "${stringResource(id = R.string.proteins)}: ${product.proteins} ${
                         stringResource(
@@ -56,6 +62,7 @@ fun OneItem(product: ProductInfo) {
                         )
                     }"
                 )
+
                 Text(
                     text = "${stringResource(id = R.string.fats)}: ${product.fats} ${
                         stringResource(
@@ -63,6 +70,7 @@ fun OneItem(product: ProductInfo) {
                         )
                     }"
                 )
+
                 Text(
                     text =
                     "${stringResource(id = R.string.carbohydrates)}: ${product.carbohydrates} ${
@@ -71,6 +79,7 @@ fun OneItem(product: ProductInfo) {
                         )
                     }"
                 )
+
             }
         }
     }
