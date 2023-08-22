@@ -1,4 +1,5 @@
 package com.example.diabetescontrol.presentation.screens
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -16,6 +17,10 @@ import com.example.diabetescontrol.presentation.uiComponents.searchBar.SearchBar
 fun SearchingScreen(viewModel: SearchingScreenViewModel) {
 
     val state by remember{ viewModel.stateOfLoading }
+
+    BackHandler {
+        viewModel.backToDefaultState()
+    }
 
     Column() {
 
