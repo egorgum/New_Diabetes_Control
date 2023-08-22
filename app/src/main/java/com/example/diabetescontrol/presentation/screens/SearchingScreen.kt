@@ -18,7 +18,7 @@ fun SearchingScreen(viewModel: SearchingScreenViewModel) {
 
     val state by remember{ viewModel.stateOfLoading }
 
-    BackHandler {
+    BackHandler(enabled = state != LoadStates.Default()) {
         viewModel.backToDefaultState()
     }
 
