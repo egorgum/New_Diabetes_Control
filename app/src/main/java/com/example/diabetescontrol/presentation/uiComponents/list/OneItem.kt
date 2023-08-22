@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.diabetescontrol.R
-import com.example.diabetescontrol.domain.ProductInfo
+import com.example.diabetescontrol.domain.entities.ProductInfo
 
 
 @Composable

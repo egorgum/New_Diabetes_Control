@@ -1,7 +1,7 @@
 package com.example.diabetescontrol.data.mapper
 
 import com.example.diabetescontrol.data.models.ProductDto
-import com.example.diabetescontrol.domain.ProductInfo
+import com.example.diabetescontrol.domain.entities.ProductInfo
 import javax.inject.Inject
 
 class ProductMapper @Inject constructor() {

@@ -15,8 +15,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -24,19 +24,22 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SearchBarSample(function: (String) -> Unit) {
+fun SearchBarSample(searchFunction: (String) -> Unit) {
 
+    val viewModel =  hiltViewModel<HistoryViewModel>()
     var text by rememberSaveable { mutableStateOf("") }
     var active by remember { mutableStateOf(false) }
-    var history = remember { mutableStateListOf("Lol", "Kek") }
+    val history = viewModel.history.collectAsState(initial = emptyList())
 
     fun search(){
         active = false
-        function(text)
+        viewModel.updateHistory(text)
+        searchFunction(text)
     }
 
     SearchBar(
@@ -45,7 +48,9 @@ fun SearchBarSample(function: (String) -> Unit) {
         onSearch = { search() },
         active = active,
         onActiveChange = { active = true },
-        modifier = Modifier.fillMaxWidth().padding(bottom = 10.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 10.dp),
         placeholder = { Text("Search") },
         leadingIcon = {
             Icon(
@@ -74,12 +79,13 @@ fun SearchBarSample(function: (String) -> Unit) {
     )
 
     {
-        history.forEach {
+        history.value.forEach {
             if (it.isNotEmpty()) {
                 Row(
                     modifier = Modifier
                         .clickable {
                             text = it
+                            search()
                         }
                         .fillMaxWidth()
                         .padding(14.dp)

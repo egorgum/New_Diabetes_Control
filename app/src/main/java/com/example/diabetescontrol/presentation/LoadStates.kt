@@ -1,7 +1,7 @@
 package com.example.diabetescontrol.presentation
 
 import com.example.diabetescontrol.R
-import com.example.diabetescontrol.domain.ProductInfo
+import com.example.diabetescontrol.domain.entities.ProductInfo
 
 sealed  class LoadStates {
     data class Default(val textRes: Int = R.string.nutrientsInfo): LoadStates()
