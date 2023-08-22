@@ -1,6 +1,4 @@
 package com.example.diabetescontrol.presentation.screens
-
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -19,8 +17,6 @@ fun SearchingScreen(viewModel: SearchingScreenViewModel) {
 
     val state by remember{ viewModel.stateOfLoading }
 
-    Log.d("LOL","ViewModel: $viewModel")
-    Log.d("LOL","STATE: ${viewModel.stateOfLoading.value}")
 
     Column() {
 

@@ -3,8 +3,8 @@ package com.example.diabetescontrol.data.repocitory
 
 import com.example.diabetescontrol.data.emamApi.EmamApiService
 import com.example.diabetescontrol.data.mapper.ProductMapper
-import com.example.diabetescontrol.domain.ProductInfo
-import com.example.diabetescontrol.domain.SearchingProductsRepository
+import com.example.diabetescontrol.domain.entities.ProductInfo
+import com.example.diabetescontrol.domain.repository.SearchingProductsRepository
 import javax.inject.Inject
 
 

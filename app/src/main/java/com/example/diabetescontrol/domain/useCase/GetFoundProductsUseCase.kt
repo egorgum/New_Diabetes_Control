@@ -1,5 +1,7 @@
-package com.example.diabetescontrol.domain
+package com.example.diabetescontrol.domain.useCase
 
+import com.example.diabetescontrol.domain.entities.ProductInfo
+import com.example.diabetescontrol.domain.repository.SearchingProductsRepository
 import javax.inject.Inject
 
 

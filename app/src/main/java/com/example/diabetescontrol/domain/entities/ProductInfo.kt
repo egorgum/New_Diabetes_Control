@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.domain
+package com.example.diabetescontrol.domain.entities
 
 data class ProductInfo(
     val image: String?,
