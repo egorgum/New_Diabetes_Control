@@ -1,14 +1,11 @@
-package com.example.diabetescontrol.presentation.uiComponents
+package com.example.diabetescontrol.presentation.uiComponents.searchBar
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -22,24 +19,28 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.diabetescontrol.presentation.uiComponents.searchBar.history.HistoryItem
+import com.example.diabetescontrol.presentation.uiComponents.searchBar.history.HistoryViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SearchBarSample(searchFunction: (String) -> Unit) {
+fun SearchBarSample( searchFunction: (String) -> Unit ) {
 
     val viewModel =  hiltViewModel<HistoryViewModel>()
     var text by rememberSaveable { mutableStateOf("") }
     var active by remember { mutableStateOf(false) }
     val history = viewModel.history.collectAsState(initial = emptyList())
 
-    fun search(){
+    fun search(q: String = text){
         active = false
-        viewModel.updateHistory(text)
+        if (text != q){
+            text = q
+        }
         searchFunction(text)
+        viewModel.updateHistory(text)
     }
 
     SearchBar(
@@ -51,7 +52,9 @@ fun SearchBarSample(searchFunction: (String) -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(bottom = 10.dp),
+
         placeholder = { Text("Search") },
+
         leadingIcon = {
             Icon(
                 imageVector = Icons.Default.Search,
@@ -61,6 +64,7 @@ fun SearchBarSample(searchFunction: (String) -> Unit) {
                 }
             )
         },
+
         trailingIcon = {
             if (active) {
                 Icon(
@@ -76,30 +80,22 @@ fun SearchBarSample(searchFunction: (String) -> Unit) {
                     })
             }
         }
+
     )
 
     {
+
+        //Close search bar after your click on back button
+        BackHandler {
+            active = false
+        }
+
         history.value.forEach {
-            if (it.isNotEmpty()) {
-                Row(
-                    modifier = Modifier
-                        .clickable {
-                            text = it
-                            search()
-                        }
-                        .fillMaxWidth()
-                        .padding(14.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.History,
-                        contentDescription = null,
-                    )
-                    Spacer(modifier = Modifier.width(10.dp))
-                    Text(
-                        text = it,
-                        textAlign = TextAlign.Center)
-                }
-            }
+            HistoryItem(
+                string = it,
+                search = {q -> search(q)},
+                delete = {q -> viewModel.deleteHistoryItem(q)}
+            )
         }
     }
 }

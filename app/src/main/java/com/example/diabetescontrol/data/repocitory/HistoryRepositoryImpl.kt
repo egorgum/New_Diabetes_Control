@@ -1,6 +1,6 @@
 package com.example.diabetescontrol.data.repocitory
 
-import com.example.diabetescontrol.data.HistoryDao
+import com.example.diabetescontrol.data.storage.HistoryDao
 import com.example.diabetescontrol.data.mapper.HistoryMapper
 import com.example.diabetescontrol.domain.repository.HistoryRepository
 import kotlinx.coroutines.flow.Flow
@@ -19,6 +19,7 @@ class HistoryRepositoryImpl @Inject constructor(
         dao.deleteHistoryItem(mapper.mapStrToDbModel(q))
     }
 
+    //Deleting to avoid repeating items and after that we add item in the search history
     override suspend fun updateHistory(q: String) {
         deleteHistoryItem(q)
         dao.addHistoryItem(mapper.mapStrToDbModel(q))

@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.presentation.uiComponents
+package com.example.diabetescontrol.presentation.uiComponents.searchBar.history
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

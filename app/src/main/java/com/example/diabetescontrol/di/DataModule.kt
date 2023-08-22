@@ -1,8 +1,8 @@
 package com.example.diabetescontrol.di
 
 import android.content.Context
-import com.example.diabetescontrol.data.AppDb
-import com.example.diabetescontrol.data.HistoryDao
+import com.example.diabetescontrol.data.storage.AppDb
+import com.example.diabetescontrol.data.storage.HistoryDao
 import com.example.diabetescontrol.data.emamApi.EmamApiFactory
 import com.example.diabetescontrol.data.emamApi.EmamApiService
 import com.example.diabetescontrol.data.mapper.HistoryMapper
@@ -22,6 +22,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class DataModule{
 
+    //Network
     @Provides
     @Singleton
     fun provideSearchingProductsRepository(
@@ -38,6 +39,7 @@ class DataModule{
     }
 
 
+    //Search history
     @Provides
     @Singleton
     fun provideHistoryRepository(
@@ -47,7 +49,7 @@ class DataModule{
         return HistoryRepositoryImpl(mapper, dao)
     }
     @Provides
-    fun provideHistoryDao(@ApplicationContext context: Context):HistoryDao{
+    fun provideHistoryDao(@ApplicationContext context: Context): HistoryDao {
         return AppDb.getInstance(context).historyDao()
     }
 

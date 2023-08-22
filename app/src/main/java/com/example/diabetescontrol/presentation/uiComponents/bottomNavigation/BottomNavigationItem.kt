@@ -53,8 +53,12 @@ fun BottomNavigationItem(
                 )
                 {
                     navController.navigate(screen.route) {
-                        popUpTo(navController.graph.findStartDestination().id)
                         launchSingleTop = true
+
+                        popUpTo(navController.graph.findStartDestination().id){
+                            saveState = true
+                        }
+                        restoreState = true
                     }
                 }
         )

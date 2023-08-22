@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.data
+package com.example.diabetescontrol.data.storage
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -13,6 +13,7 @@ interface HistoryDao {
     @Delete
     suspend fun deleteHistoryItem(query: HistoryDbModel)
 
+    //We will ignore conflict for saving history Item
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addHistoryItem(query: HistoryDbModel)
 

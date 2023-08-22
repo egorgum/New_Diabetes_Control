@@ -10,13 +10,12 @@ import com.example.diabetescontrol.presentation.uiComponents.LoadingSample
 import com.example.diabetescontrol.presentation.SearchingScreenViewModel
 import com.example.diabetescontrol.presentation.uiComponents.TextInCenterSample
 import com.example.diabetescontrol.presentation.uiComponents.list.ListOfItems
-import com.example.diabetescontrol.presentation.uiComponents.SearchBarSample
+import com.example.diabetescontrol.presentation.uiComponents.searchBar.SearchBarSample
 
 @Composable
 fun SearchingScreen(viewModel: SearchingScreenViewModel) {
 
     val state by remember{ viewModel.stateOfLoading }
-
 
     Column() {
 
