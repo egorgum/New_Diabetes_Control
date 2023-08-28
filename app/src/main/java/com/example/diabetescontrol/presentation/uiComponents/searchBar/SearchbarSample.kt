@@ -21,8 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.diabetescontrol.presentation.uiComponents.searchBar.history.HistoryItem
-import com.example.diabetescontrol.presentation.uiComponents.searchBar.history.HistoryViewModel
+import com.example.diabetescontrol.presentation.viewModels.HistoryViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)

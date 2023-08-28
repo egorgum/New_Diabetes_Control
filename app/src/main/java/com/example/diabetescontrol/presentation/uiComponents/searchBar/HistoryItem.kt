@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterialApi::class)
 
-package com.example.diabetescontrol.presentation.uiComponents.searchBar.history
+package com.example.diabetescontrol.presentation.uiComponents.searchBar
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
