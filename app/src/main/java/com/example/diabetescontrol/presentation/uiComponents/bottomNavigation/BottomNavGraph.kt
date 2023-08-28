@@ -7,8 +7,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.diabetescontrol.presentation.screens.AnalyticsScreen
-import com.example.diabetescontrol.presentation.screens.RecipesScreen
-import com.example.diabetescontrol.presentation.screens.SearchingScreen
+import com.example.diabetescontrol.presentation.screens.recipesScreen.RecipesScreen
+import com.example.diabetescontrol.presentation.screens.searchScreen.SearchScreen
 
 @Composable
 @Stable
@@ -29,7 +29,7 @@ fun BottomNavGraph(navController: NavHostController) {
         }
 
         composable(route = BottomNavigationStates.SEARCHING_ROUTE) {
-            SearchingScreen(hiltViewModel())
+            SearchScreen(hiltViewModel())
         }
     }
 }
