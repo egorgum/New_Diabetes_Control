@@ -14,4 +14,5 @@ open class BaseNetworkViewModel(): ViewModel() {
         LoadStates.Default)
     val stateOfLoading: State<LoadStates>
         get() = _stateOfLoading
+
 }

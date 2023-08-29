@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.presentation.uiComponents.list
+package com.example.diabetescontrol.presentation.uiComponents.searchScreenList
 
 
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,14 +8,14 @@ import androidx.compose.ui.Modifier
 import com.example.diabetescontrol.domain.entities.ProductInfo
 
 @Composable
-fun ListOfItems(items: List<ProductInfo>) {
+fun ListOfProductItems(items: List<ProductInfo>) {
     LazyColumn(
         Modifier
             .fillMaxWidth()
     ){
         items.forEach {
             item {
-                OneItem(product = it)
+                OneProductItem(item = it)
             }
         }
     }

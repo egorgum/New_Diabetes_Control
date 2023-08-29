@@ -1,22 +1,24 @@
 package com.example.diabetescontrol.presentation.screens.recipesScreen
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.material3.Text
+import android.util.Log
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
+import com.example.diabetescontrol.domain.entities.RecipeInfo
+import com.example.diabetescontrol.presentation.screens.ErrorScreenForRecipes
 
 @Composable
 fun RecipesScreen(){//viewModel: RecipesScreenViewModel) {
 
     //val state by remember { viewModel.stateOfLoading }
-
-    Text(
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .fillMaxSize()
-            .wrapContentHeight(),
-        text = "Recipes"
+    var oneItem = RecipeInfo(
+        title = "pancake",
+        image = "https://blog.jetbrains.com/wp-content/uploads/2020/11/light.png",
+        recipe = "DFHGGDFHDFGHDFGDFGSDFGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
     )
+    val list = listOf<RecipeInfo>(oneItem)
+    //ListOfRecipeItems(items = list)
+    ErrorScreenForRecipes(errorMessage = "Ошибка сети, повторите позже") {
+        Log.d("LOL","Update")
+    }
+
+
 }

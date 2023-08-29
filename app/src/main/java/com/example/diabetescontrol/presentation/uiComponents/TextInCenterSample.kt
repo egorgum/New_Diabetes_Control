@@ -3,7 +3,6 @@ package com.example.diabetescontrol.presentation.uiComponents
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -23,7 +22,7 @@ fun TextInCenterSample(text: String) {
     ) {
         Column(
             verticalArrangement = Arrangement.Center,
-            modifier = Modifier.fillMaxHeight()//.padding(8.dp)
+            //modifier = Modifier.fillMaxHeight()
         ) {
             Text(
                 text = text,
