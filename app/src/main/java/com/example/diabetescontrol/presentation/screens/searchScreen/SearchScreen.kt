@@ -1,16 +1,19 @@
 package com.example.diabetescontrol.presentation.screens.searchScreen
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.diabetescontrol.R
 import com.example.diabetescontrol.presentation.screens.LoadStates
 
 import com.example.diabetescontrol.presentation.uiComponents.LoadingSample
 import com.example.diabetescontrol.presentation.uiComponents.TextInCenterSample
-import com.example.diabetescontrol.presentation.uiComponents.list.ListOfItems
+import com.example.diabetescontrol.presentation.uiComponents.searchScreenList.ListOfProductItems
 import com.example.diabetescontrol.presentation.uiComponents.searchBar.SearchBarSample
 import com.example.diabetescontrol.presentation.viewModels.SearchScreenViewModel
 
@@ -29,10 +32,15 @@ fun SearchScreen(viewModel: SearchScreenViewModel) {
 
         when(state){
             is LoadStates.Default ->
-                TextInCenterSample(stringResource(R.string.nutrientsInfo))
+
+                Column(
+                    modifier = Modifier.fillMaxHeight(),
+                    verticalArrangement = Arrangement.Center) {
+                    TextInCenterSample(stringResource(R.string.nutrientsInfo))
+                }
 
             is LoadStates.Success ->
-                ListOfItems(viewModel.products)
+                ListOfProductItems(viewModel.products)
 
             is LoadStates.Error ->
                TextInCenterSample((state as LoadStates.Error).errorMessage)

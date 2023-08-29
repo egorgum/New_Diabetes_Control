@@ -31,7 +31,9 @@ class SearchScreenViewModel @Inject constructor(private val useCase: GetFoundPro
         }
     }
 
+
     fun backToDefaultState(){
         _stateOfLoading.value = LoadStates.Default
     }
+
 }

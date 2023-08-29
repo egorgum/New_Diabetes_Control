@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.presentation.uiComponents.list
+package com.example.diabetescontrol.presentation.uiComponents.searchScreenList
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,7 +21,7 @@ import com.example.diabetescontrol.domain.entities.ProductInfo
 
 
 @Composable
-fun OneItem(product: ProductInfo) {
+fun OneProductItem(item: ProductInfo) {
     Card(Modifier.padding(horizontal = 8.dp, vertical = 8.dp,)) {
 
         Row(
@@ -34,21 +34,21 @@ fun OneItem(product: ProductInfo) {
             Column(modifier = Modifier.padding(start = 8.dp, end = 8.dp)) { // 3
 
                 Text(
-                    text = product.label,
+                    text = item.label,
                     style = TextStyle(fontWeight = FontWeight.Bold),
                     fontSize = 20.sp,
                 )
 
-                if (product.image != null) {
+                if (item.image != null) {
                     AsyncImage(
-                        model = product.image,
+                        model = item.image,
                         contentDescription = null,
                         modifier = Modifier.size(400.dp),
                     )
                 }
 
                 Text(
-                    text = "${stringResource(id = R.string.energy)}: ${product.energy} ${
+                    text = "${stringResource(id = R.string.energy)}: ${item.energy} ${
                         stringResource(
                             id = R.string.kcal
                         )
@@ -56,7 +56,7 @@ fun OneItem(product: ProductInfo) {
                 )
 
                 Text(
-                    text = "${stringResource(id = R.string.proteins)}: ${product.proteins} ${
+                    text = "${stringResource(id = R.string.proteins)}: ${item.proteins} ${
                         stringResource(
                             id = R.string.gram
                         )
@@ -64,7 +64,7 @@ fun OneItem(product: ProductInfo) {
                 )
 
                 Text(
-                    text = "${stringResource(id = R.string.fats)}: ${product.fats} ${
+                    text = "${stringResource(id = R.string.fats)}: ${item.fats} ${
                         stringResource(
                             id = R.string.gram
                         )
@@ -73,7 +73,7 @@ fun OneItem(product: ProductInfo) {
 
                 Text(
                     text =
-                    "${stringResource(id = R.string.carbohydrates)}: ${product.carbohydrates} ${
+                    "${stringResource(id = R.string.carbohydrates)}: ${item.carbohydrates} ${
                         stringResource(
                             id = R.string.gram
                         )
