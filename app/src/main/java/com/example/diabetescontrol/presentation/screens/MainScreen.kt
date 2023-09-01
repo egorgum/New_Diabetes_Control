@@ -7,8 +7,8 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.example.diabetescontrol.presentation.uiComponents.bottomNavigation.BottomNavGraph
-import com.example.diabetescontrol.presentation.uiComponents.bottomNavigation.BottomNavigationScreen
+import com.example.diabetescontrol.presentation.navigation.bottomNavigation.BottomNavGraph
+import com.example.diabetescontrol.presentation.navigation.bottomNavigation.BottomNavigationScreen
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable

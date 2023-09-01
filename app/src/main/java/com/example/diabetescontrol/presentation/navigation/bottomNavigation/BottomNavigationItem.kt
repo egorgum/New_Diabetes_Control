@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.presentation.uiComponents.bottomNavigation
+package com.example.diabetescontrol.presentation.navigation.bottomNavigation
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background

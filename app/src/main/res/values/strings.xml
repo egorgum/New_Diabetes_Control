@@ -4,6 +4,7 @@
     <string name="recipes">Recipes</string>
     <string name="analytics">Analytics</string>
     <string name="search">Search</string>
+    <string name="account">Account</string>
 
     <string name="carbohydrates">Carbohydrates</string>
     <string name="energy">Energy</string>
@@ -16,5 +17,7 @@
     <string name="nutrientsInfo">Information about nutrients is provided per 100 grams of product</string>
     <string name="error">Error</string>
     <string name="update">Update</string>
+    
+    <string name="default_web_client_id">629389321986-6bek6u55aj86ctrqamibcadqp4ldpcms.apps.googleusercontent.com</string>
 
 </resources>

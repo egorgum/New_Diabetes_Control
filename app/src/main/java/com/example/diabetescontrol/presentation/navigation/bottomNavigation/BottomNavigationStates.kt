@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.presentation.uiComponents.bottomNavigation
+package com.example.diabetescontrol.presentation.navigation.bottomNavigation
 
 
 import com.example.diabetescontrol.R
@@ -26,9 +26,16 @@ sealed class BottomNavigationStates(
         titleRes = R.string.search
     )
 
+    data object Account: BottomNavigationStates(
+        route = ACCOUNT_ROUTE,
+        iconId = R.drawable.baseline_person_24,
+        titleRes = R.string.account
+    )
+
     companion object {
         const val ANALYTICS_ROUTE = "analytics_route"
         const val RECIPES_ROUTE = "recipes_route"
         const val SEARCHING_ROUTE = "searching_route"
+        const val ACCOUNT_ROUTE = "account_route"
     }
 }
