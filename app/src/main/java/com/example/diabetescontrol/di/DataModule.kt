@@ -7,10 +7,15 @@ import com.example.diabetescontrol.data.emamApi.EmamApiFactory
 import com.example.diabetescontrol.data.emamApi.EmamApiService
 import com.example.diabetescontrol.data.mapper.HistoryMapper
 import com.example.diabetescontrol.data.mapper.ProductMapper
+import com.example.diabetescontrol.data.repocitory.AuthRepositoryImpl
 import com.example.diabetescontrol.data.repocitory.HistoryRepositoryImpl
 import com.example.diabetescontrol.data.repocitory.SearchingProductsRepositoryImpl
+import com.example.diabetescontrol.domain.repository.AuthRepository
 import com.example.diabetescontrol.domain.repository.HistoryRepository
 import com.example.diabetescontrol.domain.repository.SearchingProductsRepository
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -52,5 +57,19 @@ class DataModule{
     fun provideHistoryDao(@ApplicationContext context: Context): HistoryDao {
         return AppDb.getInstance(context).historyDao()
     }
+
+    //AuthRepository
+    @Provides
+    @Singleton
+    fun provideAuthRepository(currentUser: FirebaseUser?): AuthRepository {
+        return AuthRepositoryImpl(currentUser)
+    }
+
+    @Provides
+    fun provideCurrentUser(): FirebaseUser? {
+        return Firebase.auth.currentUser
+    }
+
+
 
 }

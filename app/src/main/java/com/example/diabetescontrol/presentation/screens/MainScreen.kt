@@ -12,11 +12,11 @@ import com.example.diabetescontrol.presentation.navigation.bottomNavigation.Bott
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun MainScreen(){
+fun MainScreen(onLogInScreen: () -> Unit){
     val navController = rememberNavController()
     Scaffold(bottomBar = { BottomNavigationScreen(navController = navController) }) {
         Column(Modifier.padding(it)){
-            BottomNavGraph(navController = navController)
+            BottomNavGraph(navController = navController, onLogInScreen)
         }
     }
 }

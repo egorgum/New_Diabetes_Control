@@ -1,17 +1,19 @@
 package com.example.diabetescontrol.presentation.navigation
 
+//Types of navigation
 sealed class AppNavigationStates(val route: String) {
 
-    data object SignIn :AppNavigationStates(
-        route = SIGN_IN_ROUTE,
+    data object Reg :AppNavigationStates(
+        route = REG_ROUTE,
     )
 
-    data object Main :AppNavigationStates(
-        route = MAIN_ROUTE,
+    data object Bottom :AppNavigationStates(
+        route = BOTTOM_ROUTE,
     )
 
     companion object {
-        const val SIGN_IN_ROUTE = "sign_in_route"
-        const val MAIN_ROUTE = "recipes_route"
+        private const val REG_ROUTE = "reg_route"
+        private const val BOTTOM_ROUTE = "bottom_route"
     }
+
 }

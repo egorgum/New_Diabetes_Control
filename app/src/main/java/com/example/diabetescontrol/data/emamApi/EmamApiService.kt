@@ -14,8 +14,8 @@ interface EmamApiService {
 
     companion object{
         //Emam API
-        private const val APP_ID = "c36f23fa"
-        private const val APP_KEY = "155898bbc7dd2ccba133d99ddc2e9a65"
+        private const val APP_ID = "33a4584c"
+        private const val APP_KEY = "18ac155b3e11b0c9aaf77f8673753418"
 
     }
 }
