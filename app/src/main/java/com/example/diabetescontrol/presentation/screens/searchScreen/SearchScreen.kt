@@ -36,7 +36,7 @@ fun SearchScreen(viewModel: SearchScreenViewModel) {
                 Column(
                     modifier = Modifier.fillMaxHeight(),
                     verticalArrangement = Arrangement.Center) {
-                    TextInCenterSample(stringResource(R.string.nutrientsInfo))
+                    TextInCenterSample(stringResource(R.string.nutrients_info))
                 }
 
             is LoadStates.Success ->

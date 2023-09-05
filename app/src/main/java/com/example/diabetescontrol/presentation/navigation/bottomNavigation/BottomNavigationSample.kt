@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.presentation.uiComponents.bottomNavigation
+package com.example.diabetescontrol.presentation.navigation.bottomNavigation
 
 
 import androidx.compose.foundation.background
@@ -21,8 +21,9 @@ import com.example.diabetescontrol.presentation.theme.DiabetesControlTheme
 fun BottomNavigationScreen(navController: NavController) {
     //Screens list
     val listItems = listOf(
-        BottomNavigationStates.Recipes,
+        BottomNavigationStates.Account,
         BottomNavigationStates.Analytics,
+        BottomNavigationStates.Recipes,
         BottomNavigationStates.Search
     )
     val backStackEntry by navController.currentBackStackEntryAsState()

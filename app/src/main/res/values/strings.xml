@@ -1,20 +1,40 @@
 <resources>
+
+    <!-- States -->
     <string name="app_name">Diabetes Control</string>
+    <string name="default_web_client_id">629389321986-6bek6u55aj86ctrqamibcadqp4ldpcms.apps.googleusercontent.com</string>
 
-    <string name="recipes">Recipes</string>
-    <string name="analytics">Analytics</string>
-    <string name="search">Search</string>
+    <!-- Errors -->
+    <string name="error">Error</string>
+    <string name="unknown_error">Unknown error</string>
+    <string
+        name="email_and_password_can_not_be_empty">
+        "email and password can not be empty"
+    </string>
+    <string name="password_do_not_match">Password do not match</string>
 
+    <!-- UI -->
+    <string name="nutrients_info">Information about nutrients is provided per 100 grams of product</string>
     <string name="carbohydrates">Carbohydrates</string>
     <string name="energy">Energy</string>
     <string name="fats">Fats</string>
     <string name="proteins">Proteins</string>
-
     <string name="kcal">kcal</string>
     <string name="gram">g</string>
-
-    <string name="nutrientsInfo">Information about nutrients is provided per 100 grams of product</string>
-    <string name="error">Error</string>
+    <string name="recipes">Recipes</string>
+    <string name="analytics">Analytics</string>
+    <string name="search">Search</string>
+    <string name="account">Account</string>
     <string name="update">Update</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="log_in">Log In</string>
+    <string name="already_have_an_account">Already have an Account?</string>
+    <string name="google">Google</string>
+    <string name="do_not_have_an_account">Don\'t have an Account?</string>
+    <string name="success_login">"Success log in account"</string>
+    <string name="failed_login">"Failed log in account"</string>
 
 </resources>

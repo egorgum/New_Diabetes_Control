@@ -22,7 +22,6 @@ fun TextInCenterSample(text: String) {
     ) {
         Column(
             verticalArrangement = Arrangement.Center,
-            //modifier = Modifier.fillMaxHeight()
         ) {
             Text(
                 text = text,
