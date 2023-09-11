@@ -2,12 +2,13 @@ package com.example.diabetescontrol.data.repocitory
 
 import android.content.Context
 import com.example.diabetescontrol.R
+import com.example.diabetescontrol.data.mapper.AuthMapper
+import com.example.diabetescontrol.domain.entities.AccountInfo
 import com.example.diabetescontrol.domain.repository.AuthRepository
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.AuthCredential
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
@@ -15,17 +16,18 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class AuthRepositoryImpl @Inject constructor(
-    private val currentUser:FirebaseUser?,
-
-    ): AuthRepository {
+class AuthRepositoryImpl @Inject constructor(private val mapper: AuthMapper): AuthRepository {
 
 
     override fun hasUser(): Boolean {
         return Firebase.auth.currentUser != null
     }
 
-    override fun getUserId(): String = Firebase.auth.currentUser?.uid.orEmpty()
+    override fun getUser(): AccountInfo =
+        mapper
+            .mapFireBaseUserToAccountInfo(
+                Firebase.auth.currentUser!!
+            )
 
     override suspend fun createUser(
         email: String,

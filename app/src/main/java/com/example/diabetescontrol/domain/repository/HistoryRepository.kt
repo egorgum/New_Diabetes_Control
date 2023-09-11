@@ -9,5 +9,6 @@ interface HistoryRepository {
     suspend fun updateHistory(q:String)
 
     suspend fun  deleteHistoryItem(q:String)
+    suspend fun deleteAllItems()
 
 }
