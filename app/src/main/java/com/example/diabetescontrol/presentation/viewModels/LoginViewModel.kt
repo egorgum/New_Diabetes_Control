@@ -11,7 +11,6 @@ import com.example.diabetescontrol.R
 import com.example.diabetescontrol.domain.entities.LoginState
 import com.example.diabetescontrol.domain.useCase.loginUseCases.CreateUserUseCase
 import com.example.diabetescontrol.domain.useCase.loginUseCases.GetClientUseCase
-import com.example.diabetescontrol.domain.useCase.loginUseCases.GetUserIdUseCase
 import com.example.diabetescontrol.domain.useCase.loginUseCases.GoogleLoginUseCase
 import com.example.diabetescontrol.domain.useCase.loginUseCases.HasUserUseCase
 import com.example.diabetescontrol.domain.useCase.loginUseCases.LoginUserUseCase
@@ -24,16 +23,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val getUserIdUseCase: GetUserIdUseCase,
     private val hasUserUseCase: HasUserUseCase,
     private val createUserUseCase: CreateUserUseCase,
     private val loginUserUseCase: LoginUserUseCase,
     private val googleLoginUseCase: GoogleLoginUseCase,
     private val getClientUseCase: GetClientUseCase
 ) : ViewModel() {
-
-    val currentUser
-        get() = getUserIdUseCase.getUserId()
 
     val hasUser: Boolean
         get() = hasUserUseCase.hasUser()

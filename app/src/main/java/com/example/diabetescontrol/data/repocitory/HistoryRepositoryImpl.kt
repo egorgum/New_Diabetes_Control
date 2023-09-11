@@ -19,6 +19,9 @@ class HistoryRepositoryImpl @Inject constructor(
         dao.deleteHistoryItem(mapper.mapStrToDbModel(q))
     }
 
+    override suspend fun deleteAllItems() {
+        dao.deleteAllHistoryItems()
+    }
     //Deleting to avoid repeating items and after that we add item in the search history
     override suspend fun updateHistory(q: String) {
         deleteHistoryItem(q)

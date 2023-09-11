@@ -1,13 +1,14 @@
 package com.example.diabetescontrol.domain.repository
 
 import android.content.Context
+import com.example.diabetescontrol.domain.entities.AccountInfo
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.AuthCredential
 
 interface AuthRepository {
     fun hasUser():Boolean
 
-    fun getUserId(): String
+    fun getUser(): AccountInfo
 
     suspend fun createUser(email: String, password: String, onComplete: (Boolean) -> Unit)
 

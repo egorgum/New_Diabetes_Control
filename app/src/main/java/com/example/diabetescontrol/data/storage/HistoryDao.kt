@@ -20,4 +20,8 @@ interface HistoryDao {
     @Query("SELECT * FROM history")
     fun getHistory(): Flow<List<HistoryDbModel>>
 
+    @Query("DELETE  FROM history")
+    suspend fun deleteAllHistoryItems()
+
+
 }

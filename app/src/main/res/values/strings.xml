@@ -36,5 +36,9 @@
     <string name="do_not_have_an_account">Don\'t have an Account?</string>
     <string name="success_login">"Success log in account"</string>
     <string name="failed_login">"Failed log in account"</string>
+    <string name="warning">Warning</string>
+    <string name="warningText">
+        If you log out of your account, your search history and your statistics will be deleted.
+    </string>
 
 </resources>

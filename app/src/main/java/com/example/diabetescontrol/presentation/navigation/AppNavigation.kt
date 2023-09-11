@@ -9,23 +9,26 @@ import androidx.navigation.compose.rememberNavController
 import com.example.diabetescontrol.presentation.screens.LogInScreen
 import com.example.diabetescontrol.presentation.screens.MainScreen
 import com.example.diabetescontrol.presentation.screens.SignUpScreen
-import com.example.diabetescontrol.presentation.viewModels.LoginViewModel
 
 @Composable
 fun AppNavigation(
     navController: NavHostController = rememberNavController(),
+    hasUser: Boolean
 ) {
 
     //Main Navigation
     NavHost(
         navController = navController,
-        startDestination = ScreensNavigationStates.LogIn.route,
+        startDestination =
+        if (hasUser) ScreensNavigationStates.Main.route
+        else ScreensNavigationStates.LogIn.route
+        ,
         route = AppNavigationStates.Reg.route){
 
         composable(ScreensNavigationStates.SignUp.route){
 
             SignUpScreen(
-                viewModel = hiltViewModel<LoginViewModel>(),
+                viewModel = hiltViewModel(),
                 onNavToMainScreen = {
                     navController.navigate(ScreensNavigationStates.Main.route) {
                         launchSingleTop = true
@@ -47,7 +50,7 @@ fun AppNavigation(
 
         composable(ScreensNavigationStates.LogIn.route){
             LogInScreen(
-                viewModel = hiltViewModel<LoginViewModel>(),
+                viewModel = hiltViewModel(),
                 onNavToSignUpScreen = {
                     navController.navigate(ScreensNavigationStates.SignUp.route){
                         launchSingleTop = true
