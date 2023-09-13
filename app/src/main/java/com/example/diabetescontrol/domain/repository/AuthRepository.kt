@@ -8,7 +8,7 @@ import com.google.firebase.auth.AuthCredential
 interface AuthRepository {
     fun hasUser():Boolean
 
-    fun getUser(): AccountInfo
+    fun getUser(): AccountInfo?
 
     suspend fun createUser(email: String, password: String, onComplete: (Boolean) -> Unit)
 

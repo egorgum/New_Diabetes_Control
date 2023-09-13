@@ -1,24 +1,34 @@
 package com.example.diabetescontrol.presentation.screens.recipesScreen
 
 import android.util.Log
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
-import com.example.diabetescontrol.domain.entities.RecipeInfo
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import com.example.diabetescontrol.presentation.screens.ErrorScreenForRecipes
+import com.example.diabetescontrol.presentation.screens.LoadStates
+import com.example.diabetescontrol.presentation.uiComponents.LoadingSample
+import com.example.diabetescontrol.presentation.uiComponents.recipesScreenList.ListOfRecipeItems
+import com.example.diabetescontrol.presentation.viewModels.RecipesScreenViewModel
 
 @Composable
-fun RecipesScreen(){//viewModel: RecipesScreenViewModel) {
+fun RecipesScreen(viewModel: RecipesScreenViewModel) {
+    val state by remember { viewModel.stateOfLoading }
 
-    //val state by remember { viewModel.stateOfLoading }
-    var oneItem = RecipeInfo(
-        title = "pancake",
-        image = "https://blog.jetbrains.com/wp-content/uploads/2020/11/light.png",
-        recipe = "DFHGGDFHDFGHDFGDFGSDFGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
-    )
-    val list = listOf<RecipeInfo>(oneItem)
-    //ListOfRecipeItems(items = list)
-    ErrorScreenForRecipes(errorMessage = "Ошибка сети, повторите позже") {
-        Log.d("LOL","Update")
+    Column {
+        when (state){
+            is LoadStates.Loading -> LoadingSample()
+            is LoadStates.Error -> {
+
+                ErrorScreenForRecipes(errorMessage = "Ошибка сети, повторите позже") {
+                    viewModel.getRecipes()
+                }
+            }
+            is LoadStates.Success -> {
+                Log.d("LOL","Success: ${viewModel.recipes}")
+                ListOfRecipeItems(items = viewModel.recipes)
+            }
+            is LoadStates.Default -> { viewModel.getRecipes()}
+        }
     }
-
-
 }

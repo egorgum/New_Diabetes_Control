@@ -25,7 +25,7 @@ fun ErrorScreenForRecipes(
         modifier = Modifier.fillMaxHeight()) {
         TextInCenterSample(text = errorMessage)
         Button(
-            onClick = {},
+            onClick = { update() },
         ) {
             Text(
                 text = stringResource(id = R.string.update),

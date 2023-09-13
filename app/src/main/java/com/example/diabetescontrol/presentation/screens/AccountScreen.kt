@@ -79,19 +79,19 @@ fun AccountScreen(viewModel: AccountViewModel, onLogInScreen: () -> Unit) {
             horizontalArrangement = Arrangement.Center
         ) {
             AsyncImage(
-                model = account.value.img,
+                model = account.value?.img,
                 contentDescription = "avatar",
                 modifier = Modifier
                     .size(150.dp)
                     .clip(CircleShape)
                     .border(
                         width = 1.dp,
-                        color = MaterialTheme.colorScheme.onPrimary,
+                        color = MaterialTheme.colorScheme.primaryContainer,
                         shape = CircleShape
                     ),
             )
         }
-        TextInCenterSample(text = account.value.userEmail)
+        TextInCenterSample(text = account.value!!.userEmail)
         TabRow(selectedTabIndex = tabState ) {
             titles.forEachIndexed { index, title ->
                 Tab(

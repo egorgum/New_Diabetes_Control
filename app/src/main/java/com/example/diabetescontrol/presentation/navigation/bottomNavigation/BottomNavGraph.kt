@@ -28,7 +28,7 @@ fun BottomNavGraph(navController: NavHostController, onLogInScreen: () -> Unit) 
         }
 
         composable(route = BottomNavigationStates.RECIPES_ROUTE) {
-            RecipesScreen()
+            RecipesScreen(hiltViewModel())
         }
 
         composable(route = BottomNavigationStates.SEARCHING_ROUTE) {

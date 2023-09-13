@@ -5,7 +5,7 @@ import com.example.diabetescontrol.domain.repository.AuthRepository
 import javax.inject.Inject
 
 class GetUserUseCase @Inject constructor(private val repository: AuthRepository) {
-    fun getUser():AccountInfo {
+    fun getUser():AccountInfo? {
         return repository.getUser()
     }
 }

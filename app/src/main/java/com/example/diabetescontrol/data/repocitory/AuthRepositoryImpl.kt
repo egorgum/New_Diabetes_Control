@@ -23,11 +23,12 @@ class AuthRepositoryImpl @Inject constructor(private val mapper: AuthMapper): Au
         return Firebase.auth.currentUser != null
     }
 
-    override fun getUser(): AccountInfo =
-        mapper
-            .mapFireBaseUserToAccountInfo(
-                Firebase.auth.currentUser!!
-            )
+    override fun getUser(): AccountInfo? =
+        if (Firebase.auth.currentUser != null) {
+            mapper.mapFireBaseUserToAccountInfo(Firebase.auth.currentUser!!)
+        }
+        else null
+
 
     override suspend fun createUser(
         email: String,
