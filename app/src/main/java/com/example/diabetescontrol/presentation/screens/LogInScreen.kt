@@ -6,10 +6,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
@@ -18,6 +17,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -29,7 +29,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.diabetescontrol.R
+import com.example.diabetescontrol.presentation.theme.DiabetesControlTheme
 import com.example.diabetescontrol.presentation.viewModels.LoginViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.common.api.ApiException
@@ -45,7 +47,12 @@ fun LogInScreen(
     val loginState = viewModel.loginState
     val isError = loginState.loginError != null
     val context = LocalContext.current
-    val clientId = stringResource(id = R.string.default_web_client_id)
+    val textColorForTextField = OutlinedTextFieldDefaults.colors(
+        focusedTextColor = Color.Black,
+        disabledTextColor = Color.Black,
+        errorTextColor = Color.Black,
+        unfocusedTextColor = Color.Black,
+    )
 
     //Launcher for launching the account selection menu
     val launcher = rememberLauncherForActivityResult(
@@ -62,92 +69,105 @@ fun LogInScreen(
             Log.d("LOL", "${context.getString(R.string.error)}: ${e.localizedMessage}")
         }
     }
+    DiabetesControlTheme {
 
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = stringResource(id = R.string.log_in),
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.primary
-        )
-
-        if (isError) {
-            Text(
-                text = loginState.loginError ?: stringResource(id = R.string.unknown_error),
-                color = Color.Red
-            )
-        }
-
-        OutlinedTextField(
-            value = loginState.userName,
-            onValueChange = {
-                viewModel.onUserNameChanged(it)
-            },
-            leadingIcon = {
-                Icon(imageVector = Icons.Default.Person, contentDescription = null)
-            },
-            label = {
-                Text(text = stringResource(id = R.string.email), color = Color.Black)
-            },
-            isError = isError
-        )
-
-        OutlinedTextField(
-            value = loginState.password,
-            onValueChange = {
-                viewModel.onPasswordChanged(it)
-            },
-            leadingIcon = {
-                Icon(imageVector = Icons.Default.Lock, contentDescription = null)
-            },
-            label = {
-                Text(
-                    text = stringResource(id = R.string.password), color = Color.Black
-                )
-            },
-            isError = isError,
-            visualTransformation = PasswordVisualTransformation()
-        )
-
-        Button(onClick = {
-
-            launcher.launch(viewModel.getClient(context).signInIntent)//Get Google client
-
-        }) {
-            Text(text = stringResource(id = R.string.google))
-        }
-
-        Button(onClick = { viewModel.loginUser(context) }) {
-            Text(text = stringResource(id = R.string.log_in))
-        }
-
-        Spacer(modifier = Modifier.size(16.dp))
-
-        Row(
-            modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 20.dp),
+            verticalArrangement = Arrangement.Center
         ) {
 
-            Text(text = stringResource(id = R.string.do_not_have_an_account))
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(5.dp)
+            ) {
 
-            Spacer(modifier = Modifier.size(8.dp))
+                Text(
+                    text = stringResource(id = R.string.log_in),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontSize = 50.sp
+                )
 
-            TextButton(onClick = { onNavToSignUpScreen.invoke() }) {
-                Text(text = stringResource(id = R.string.sign_up))
+                if (isError) {
+                    Text(
+                        text = loginState.loginError ?: stringResource(id = R.string.unknown_error),
+                        color = Color.Red
+                    )
+                }
+
+                OutlinedTextField(
+                    value = loginState.userName,
+                    onValueChange = { viewModel.onUserNameChanged(it) },
+                    leadingIcon = {
+                        Icon(imageVector = Icons.Default.Person, contentDescription = null)
+                    },
+                    label = {
+                        Text(
+                            text = stringResource(id = R.string.email),
+                            color = Color.Black
+                        )
+                    },
+                    isError = isError,
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = textColorForTextField
+                )
+
+                OutlinedTextField(
+                    value = loginState.password,
+                    onValueChange = { viewModel.onPasswordChanged(it) },
+                    leadingIcon = {
+                        Icon(
+                            imageVector = Icons.Default.Lock,
+                            contentDescription = null
+                        )
+                    },
+                    label = {
+                        Text(
+                            text = stringResource(id = R.string.password),
+                            color = Color.Black
+                        )
+                    },
+                    isError = isError,
+                    visualTransformation = PasswordVisualTransformation(),
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = textColorForTextField
+                )
+
+                Button(
+                    onClick = { viewModel.loginUser(context) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(text = stringResource(id = R.string.log_in))
+                }
+
+                Button(
+                    onClick = {
+                        launcher.launch(viewModel.getClient(context).signInIntent)//Get Google client //
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(text = stringResource(id = R.string.google))
+                }
+
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(text = stringResource(id = R.string.do_not_have_an_account))
+                    TextButton(onClick = { onNavToSignUpScreen.invoke() }) {
+                        Text(text = stringResource(id = R.string.sign_up))
+                    }
+                }
+
+                if (loginState.isLoading) CircularProgressIndicator()
+
+                LaunchedEffect(key1 = viewModel.hasUser) {
+                    if (viewModel.hasUser) onNavToMainScreen.invoke()
+
+                }
             }
         }
-
-        if (loginState.isLoading) {
-            CircularProgressIndicator()
-        }
-
-        LaunchedEffect(key1 = viewModel.hasUser) {
-            if (viewModel.hasUser) {
-                onNavToMainScreen.invoke()
-            }
-        }
-
     }
-
 }

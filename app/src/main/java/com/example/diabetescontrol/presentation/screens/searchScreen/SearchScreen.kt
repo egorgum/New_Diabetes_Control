@@ -27,7 +27,7 @@ fun SearchScreen(viewModel: SearchScreenViewModel) {
     }
 
     Column() {
-
+        
         SearchBarSample { q ->  viewModel.getProducts(q)}
 
         when(state){

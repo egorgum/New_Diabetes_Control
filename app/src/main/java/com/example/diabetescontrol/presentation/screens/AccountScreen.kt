@@ -29,6 +29,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.diabetescontrol.R
+import com.example.diabetescontrol.presentation.theme.DiabetesControlTheme
 import com.example.diabetescontrol.presentation.uiComponents.TextInCenterSample
 import com.example.diabetescontrol.presentation.uiComponents.WarningDialog
 import com.example.diabetescontrol.presentation.viewModels.AccountViewModel
@@ -55,50 +56,53 @@ fun AccountScreen(viewModel: AccountViewModel, onLogInScreen: () -> Unit) {
             )}
         false -> {}
     }
-    Column {
+    DiabetesControlTheme {
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            horizontalArrangement = Arrangement.End
-        ) {
-            Button(
-                onClick = {
-                    isDialogAppeared.value = true
-                }
-            ) {
-                Image(imageVector = exitIcon, contentDescription = null)
-            }
-        }
+        Column() {
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            horizontalArrangement = Arrangement.Center
-        ) {
-            AsyncImage(
-                model = account.value?.img,
-                contentDescription = "avatar",
+            Row(
                 modifier = Modifier
-                    .size(150.dp)
-                    .clip(CircleShape)
-                    .border(
-                        width = 1.dp,
-                        color = MaterialTheme.colorScheme.primaryContainer,
-                        shape = CircleShape
-                    ),
-            )
-        }
-        TextInCenterSample(text = account.value!!.userEmail)
-        TabRow(selectedTabIndex = tabState ) {
-            titles.forEachIndexed { index, title ->
-                Tab(
-                    selected = tabState == index,
-                    onClick = { tabState = index},
-                    text = { Text(text = title)}
+                    .fillMaxWidth()
+                    .padding(10.dp),
+                horizontalArrangement = Arrangement.End
+            ) {
+                Button(
+                    onClick = {
+                        isDialogAppeared.value = true
+                    }
+                ) {
+                    Image(imageVector = exitIcon, contentDescription = null)
+                }
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                AsyncImage(
+                    model = account.value?.img,
+                    contentDescription = "avatar",
+                    modifier = Modifier
+                        .size(150.dp)
+                        .clip(CircleShape)
+                        .border(
+                            width = 1.dp,
+                            color = MaterialTheme.colorScheme.primaryContainer,
+                            shape = CircleShape
+                        ),
                 )
+            }
+            TextInCenterSample(text = account.value!!.userEmail)
+            TabRow(selectedTabIndex = tabState) {
+                titles.forEachIndexed { index, title ->
+                    Tab(
+                        selected = tabState == index,
+                        onClick = { tabState = index },
+                        text = { Text(text = title) }
+                    )
+                }
             }
         }
     }

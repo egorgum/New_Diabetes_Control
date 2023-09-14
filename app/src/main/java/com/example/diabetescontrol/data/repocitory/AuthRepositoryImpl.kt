@@ -1,6 +1,7 @@
 package com.example.diabetescontrol.data.repocitory
 
 import android.content.Context
+import android.util.Log
 import com.example.diabetescontrol.R
 import com.example.diabetescontrol.data.mapper.AuthMapper
 import com.example.diabetescontrol.domain.entities.AccountInfo
@@ -20,6 +21,7 @@ class AuthRepositoryImpl @Inject constructor(private val mapper: AuthMapper): Au
 
 
     override fun hasUser(): Boolean {
+        Log.d("LOL", "User: ${Firebase.auth.currentUser?.email}")
         return Firebase.auth.currentUser != null
     }
 
@@ -81,9 +83,9 @@ class AuthRepositoryImpl @Inject constructor(private val mapper: AuthMapper): Au
         }
 
 
-    override fun signOut(context: Context) {
-        getClient(context).signOut()// Log out of Google account
+    override suspend fun signOut(context: Context) {
         Firebase.auth.signOut()
+        getClient(context).signOut().await()// Log out of Google account
     }
 
     override fun getClient(context: Context): GoogleSignInClient {
@@ -94,6 +96,7 @@ class AuthRepositoryImpl @Inject constructor(private val mapper: AuthMapper): Au
 
         return GoogleSignIn.getClient(context, gso)
     }
+
 
 
 }

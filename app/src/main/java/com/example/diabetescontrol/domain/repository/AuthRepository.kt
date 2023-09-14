@@ -16,7 +16,7 @@ interface AuthRepository {
 
     suspend fun googleLogin(credential: AuthCredential, onComplete: (Boolean) -> Unit)
 
-     fun signOut(context: Context)
+     suspend fun signOut(context: Context)
 
      fun getClient(context: Context): GoogleSignInClient
 }
