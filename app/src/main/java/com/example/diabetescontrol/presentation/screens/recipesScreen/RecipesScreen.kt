@@ -20,7 +20,7 @@ fun RecipesScreen(viewModel: RecipesScreenViewModel) {
             is LoadStates.Loading -> LoadingSample()
             is LoadStates.Error -> {
 
-                ErrorScreenForRecipes(errorMessage = "Ошибка сети, повторите позже") {
+                ErrorScreenForRecipes(errorMessage = (state as LoadStates.Error).errorMessage){//"Ошибка сети, повторите позже") {
                     viewModel.getRecipes()
                 }
             }

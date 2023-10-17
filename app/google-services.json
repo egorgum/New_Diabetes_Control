@@ -1,20 +1,29 @@
 {
   "project_info": {
     "project_number": "629389321986",
+    "firebase_url": "https://diabetes-control-data-base-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "diabetes-control-data-base",
     "storage_bucket": "diabetes-control-data-base.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:629389321986:android:961e07293fc8616bc8041b",
+        "mobilesdk_app_id": "1:629389321986:android:b585054bac7a4001c8041b",
         "android_client_info": {
           "package_name": "com.example.diabetescontrol"
         }
       },
       "oauth_client": [
         {
-          "client_id": "629389321986-88jbsamb5b5lor2ep01mrihaft0co5n7.apps.googleusercontent.com",
+          "client_id": "629389321986-14v816ttabqrkmhbe1217kodmhcqjcag.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.diabetescontrol",
+            "certificate_hash": "ef7f21a23480a05370ed8d7630838148d93816e7"
+          }
+        },
+        {
+          "client_id": "629389321986-6bek6u55aj86ctrqamibcadqp4ldpcms.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +36,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "629389321986-88jbsamb5b5lor2ep01mrihaft0co5n7.apps.googleusercontent.com",
+              "client_id": "629389321986-6bek6u55aj86ctrqamibcadqp4ldpcms.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
