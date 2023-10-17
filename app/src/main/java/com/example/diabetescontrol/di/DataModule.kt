@@ -17,8 +17,8 @@ import com.example.diabetescontrol.domain.repository.AuthRepository
 import com.example.diabetescontrol.domain.repository.HistoryRepository
 import com.example.diabetescontrol.domain.repository.RecipesRepository
 import com.example.diabetescontrol.domain.repository.SearchingProductsRepository
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import dagger.Module
 import dagger.Provides
@@ -74,14 +74,14 @@ class DataModule{
     @Singleton
     fun provideRecipeRepository(
         mapper: RecipesMapper,
-        fireStore: FirebaseFirestore): RecipesRepository {
-        return RecipesRepositoryImpl(fireStore, mapper)
+        firebaseDatabase: FirebaseDatabase): RecipesRepository {
+        return RecipesRepositoryImpl(firebaseDatabase, mapper)
     }
 
     @Provides
     @Singleton
-    fun provideFireStore(): FirebaseFirestore {
-        return Firebase.firestore
+    fun provideFirebaseDataBase(): FirebaseDatabase {
+        return Firebase.database
     }
 
 }

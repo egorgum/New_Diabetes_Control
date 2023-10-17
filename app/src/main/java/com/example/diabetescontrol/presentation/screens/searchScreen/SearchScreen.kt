@@ -47,7 +47,6 @@ fun SearchScreen(viewModel: SearchScreenViewModel) {
 
             is LoadStates.Loading ->
                 LoadingSample()
-
         }
     }
 }
