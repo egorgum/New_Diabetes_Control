@@ -50,9 +50,7 @@ fun OneProductItem(item: ProductInfo) {
                         contentDescription = null,
                         modifier = Modifier.size(imageSize.dp),
                         loading = { LoadingSample()},
-                        error = {
-                            imageSize = 0
-                        }
+                        error = { imageSize = 0 },
                     )
                 }
 

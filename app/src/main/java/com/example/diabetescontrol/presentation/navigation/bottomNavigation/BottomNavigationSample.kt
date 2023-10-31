@@ -22,7 +22,6 @@ fun BottomNavigationScreen(navController: NavController) {
     //Screens list
     val listItems = listOf(
         BottomNavigationStates.Account,
-        BottomNavigationStates.Analytics,
         BottomNavigationStates.Recipes,
         BottomNavigationStates.Search
     )

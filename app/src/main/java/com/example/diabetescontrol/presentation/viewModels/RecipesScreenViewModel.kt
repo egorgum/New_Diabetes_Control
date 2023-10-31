@@ -14,6 +14,9 @@ class RecipesScreenViewModel @Inject constructor(private val getRecipesUseCase: 
     val recipes: List<RecipeInfo>
         get() = _recipes
 
+    init {
+        getRecipes()
+    }
     fun getRecipes(){
         viewModelScope.launch {
             _stateOfLoading.value = LoadStates.Loading

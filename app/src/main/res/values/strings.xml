@@ -40,5 +40,11 @@
     <string name="warningText">
         If you log out of your account, your search history and your statistics will be deleted.
     </string>
+    <string name="measurement_dialog_title">Glucose indicator</string>
+    <string name="confirm">Confirm</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="glucose_system">mmol/l</string>
+    <string name="glucose_measurement_log">Glucose measurement log</string>
+
 
 </resources>

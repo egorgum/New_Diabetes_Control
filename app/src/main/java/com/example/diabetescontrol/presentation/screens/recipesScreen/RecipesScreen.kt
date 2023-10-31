@@ -1,6 +1,5 @@
 package com.example.diabetescontrol.presentation.screens.recipesScreen
 
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -19,16 +18,14 @@ fun RecipesScreen(viewModel: RecipesScreenViewModel) {
         when (state){
             is LoadStates.Loading -> LoadingSample()
             is LoadStates.Error -> {
-
                 ErrorScreenForRecipes(errorMessage = (state as LoadStates.Error).errorMessage){//"Ошибка сети, повторите позже") {
                     viewModel.getRecipes()
                 }
             }
             is LoadStates.Success -> {
-                Log.d("LOL","Success: ${viewModel.recipes}")
                 ListOfRecipeItems(items = viewModel.recipes)
             }
-            is LoadStates.Default -> { viewModel.getRecipes()}
+            is LoadStates.Default -> {}
         }
     }
 }

@@ -8,7 +8,8 @@ class AuthMapper @Inject constructor(){
     fun mapFireBaseUserToAccountInfo(fUser: FirebaseUser): AccountInfo {
         return AccountInfo(
             img = fUser.photoUrl?.toString(),
-            userEmail = fUser.email!!
+            userEmail = fUser.email!!,
+            userId = fUser.uid
         )
     }
 }
