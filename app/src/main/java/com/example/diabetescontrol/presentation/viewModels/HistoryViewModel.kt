@@ -2,9 +2,9 @@ package com.example.diabetescontrol.presentation.viewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.diabetescontrol.domain.useCase.DeleteHistoryItemUseCase
-import com.example.diabetescontrol.domain.useCase.GetHistoryUseCase
-import com.example.diabetescontrol.domain.useCase.UpdateHistoryUseCase
+import com.example.diabetescontrol.domain.useCase.historyUseCases.DeleteHistoryItemUseCase
+import com.example.diabetescontrol.domain.useCase.historyUseCases.GetHistoryUseCase
+import com.example.diabetescontrol.domain.useCase.historyUseCases.UpdateHistoryUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch

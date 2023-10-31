@@ -1,4 +1,4 @@
-package com.example.diabetescontrol.domain.useCase
+package com.example.diabetescontrol.domain.useCase.historyUseCases
 
 import com.example.diabetescontrol.domain.repository.HistoryRepository
 import javax.inject.Inject

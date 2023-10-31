@@ -1,29 +1,29 @@
-package com.example.diabetescontrol.presentation.uiComponents
+package com.example.diabetescontrol.presentation.uiComponents.dialogs
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
+import com.example.diabetescontrol.R
 
 @Composable
-fun WarningDialog(
+fun ExitDialog(
     onDismissRequest: () -> Unit,
     onConfirmation: () -> Unit,
-    dialogTitle: String,
-    dialogText: String,
-    icon: ImageVector,
 ) {
     AlertDialog(
         icon = {
-            Icon(icon, contentDescription = "Exit")
+            Icon(Icons.Default.Logout, contentDescription = "Exit")
         },
         title = {
-            Text(text = dialogTitle)
+            Text(text = stringResource(id = R.string.warning))
         },
         text = {
-            Text(text = dialogText)
+            Text(text = stringResource(id = R.string.warningText))
         },
         onDismissRequest = {
             onDismissRequest()
@@ -34,7 +34,7 @@ fun WarningDialog(
                     onConfirmation()
                 }
             ) {
-                Text("Confirm")
+                Text(stringResource(id = R.string.confirm))
             }
         },
         dismissButton = {
@@ -43,7 +43,8 @@ fun WarningDialog(
                     onDismissRequest()
                 }
             ) {
-                Text("Dismiss")
+                Text(stringResource(id = R.string.dismiss))
+
             }
         }
     )

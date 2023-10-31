@@ -5,14 +5,17 @@ import com.example.diabetescontrol.data.storage.AppDb
 import com.example.diabetescontrol.data.storage.HistoryDao
 import com.example.diabetescontrol.data.emamApi.EmamApiFactory
 import com.example.diabetescontrol.data.emamApi.EmamApiService
+import com.example.diabetescontrol.data.mapper.AnalyticsMapper
 import com.example.diabetescontrol.data.mapper.AuthMapper
 import com.example.diabetescontrol.data.mapper.HistoryMapper
 import com.example.diabetescontrol.data.mapper.ProductMapper
 import com.example.diabetescontrol.data.mapper.RecipesMapper
+import com.example.diabetescontrol.data.repocitory.AnalyticsRepositoryImpl
 import com.example.diabetescontrol.data.repocitory.AuthRepositoryImpl
 import com.example.diabetescontrol.data.repocitory.HistoryRepositoryImpl
 import com.example.diabetescontrol.data.repocitory.RecipesRepositoryImpl
 import com.example.diabetescontrol.data.repocitory.SearchingProductsRepositoryImpl
+import com.example.diabetescontrol.domain.repository.AnalyticsRepository
 import com.example.diabetescontrol.domain.repository.AuthRepository
 import com.example.diabetescontrol.domain.repository.HistoryRepository
 import com.example.diabetescontrol.domain.repository.RecipesRepository
@@ -78,9 +81,20 @@ class DataModule{
         return RecipesRepositoryImpl(firebaseDatabase, mapper)
     }
 
+    //Measurements
+    @Provides
+    @Singleton
+    fun provideAnalysisRepository(
+        mapper: AnalyticsMapper,
+        firebaseDatabase: FirebaseDatabase): AnalyticsRepository {
+        return AnalyticsRepositoryImpl(firebaseDatabase, mapper)
+    }
+
+    //Firebase Database
     @Provides
     @Singleton
     fun provideFirebaseDataBase(): FirebaseDatabase {
+        Firebase.database.setPersistenceEnabled(false)
         return Firebase.database
     }
 
